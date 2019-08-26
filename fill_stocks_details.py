@@ -44,13 +44,13 @@ def doCG(driver, type='stcg'):
         for ctr, fullline in enumerate(infile):
             try:
                 time.sleep(4)
-                driver.get('https://cleartax.in/PayTax/y2018/0/AddStcg/ThisIsShare?dateOfPurchase=01%2F04%2F'+str(yearOfPurchase)+'&dateOfSale=28%2F03%2F2018&stShareType=ListedSecurities&durationForLongTerm=TwelveMonths')
+                driver.get('https://cleartax.in/PayTax/y' + str(currentYear) + '/0/AddStcg/ThisIsShare?dateOfPurchase=01%2F04%2F' + str(yearOfPurchase) + '&dateOfSale=28%2F03%2F' + str(currentYear) + '&stShareType=ListedSecurities&durationForLongTerm=TwelveMonths')
                 time.sleep(2)
 
                 linearr = fullline.split(',')
-                inputDesc = linearr[1]
+                inputDesc = linearr[0]
                 inputPurchase = linearr[4]
-                inputSales = linearr[7]
+                inputSales = linearr[6]
                 print(ctr, inputDesc, inputPurchase, inputSales)
 
                 inputDescElement = driver.find_element_by_xpath("//*[@id='stCgInstance_assetDescription']")
@@ -77,7 +77,7 @@ def doCG(driver, type='stcg'):
 
 def do():
     driver = webdriver.Chrome(CHROME_DRIVER_PATH)
-    driver.get('https://cleartax.in/PayTax/y2018/0/AddStcg/ThisIsShare?dateOfPurchase=01%2F04%2F2016&dateOfSale=28%2F03%2F2018&stShareType=ListedSecurities&durationForLongTerm=TwelveMonths')
+    driver.get('https://cleartax.in/PayTax/y' + str(currentYear) + '/0/AddStcg/ThisIsShare?dateOfPurchase=01%2F04%2F' + str(currentYear - 2) + '&dateOfSale=28%2F03%2F' + str(currentYear) + '&stShareType=ListedSecurities&durationForLongTerm=TwelveMonths')
     login(driver)
     doCG(driver, type='stcg')
     doCG(driver, type='ltcg')
