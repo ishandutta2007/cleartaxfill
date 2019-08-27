@@ -13,6 +13,7 @@ from pip._vendor.distlib.util import proceed
 from selenium.webdriver.common.keys import Keys
 
 CHROME_DRIVER_PATH = "/Users/ishandutta2007/.pyenv/versions/3.6.0/lib/python3.6/site-packages/instapy_chromedriver/chromedriver_mac64"
+file_loc = "/Users/ishandutta2007/Desktop/"
 brokerage_dmat_charges = 40
 NETWORK_LATENCY = 0
 current_year = 2019
@@ -50,7 +51,7 @@ def doCG(driver, type="stcg"):
     else:
         year_of_purchase = current_year - 2
 
-    with open("/Users/ishandutta2007/Desktop/" + type + "_data.csv") as infile:
+    with open(file_loc + type + "_data.csv") as infile:
         for ctr, fullline in enumerate(infile):
             if ctr < skip_rows:
                 continue
