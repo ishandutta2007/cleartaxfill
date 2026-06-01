@@ -2,7 +2,7 @@
 # https://github.com/damnever/pigar
 
 # fill_stocks_details.py: 7
-pip == 18.1
+pip == 21.1
 
 # fill_stocks_details.py: 5,9
 selenium == 3.0.2
